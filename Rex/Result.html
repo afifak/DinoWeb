@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosaur Selection Result</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            padding: 20px;
+            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
+            background-attachment: fixed;
+        }
+        .result {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #d81b60;
+        }
+        p {
+            font-size: 20px;
+            color: #004d40;
+        }
+        .dino-image {
+            margin-top: 20px;
+            width: 300px; /* Adjust as needed */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .grass {
+            background-image: url('https://www.transparenttextures.com/patterns/grass.png');
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .change-selection {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #d81b60;
+        }
+        .change-selection a {
+            text-decoration: none;
+            color: #00796b;
+            font-weight: bold;
+            padding: 5px 10px;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .change-selection a:hover {
+            background-color: #00796b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="result">
+        <h1>Congratulations!</h1>
+        <p id="userInfo"></p>
+        <img id="dinoImage" class="dino-image" src="" alt="Dinosaur Image">
+        <div class="change-selection">
+            <a href="selection.html">Change Dinosaur Selection</a>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const firstName = params.get('firstName');
+        const lastName = params.get('lastName');
+        const dinosaur = params.get('dinosaur');
+
+        // Display the user's information and dinosaur image
+        document.getElementById('userInfo').textContent = `You selected: ${dinosaur}.`;
+        
+        // Set the dinosaur image based on the selection
+        const dinoImage = document.getElementById('dinoImage');
+        if (dinosaur === "Tyrannosaurus Rex") {
+            dinoImage.src = "/spino/Jurassic_World_Fallen_Kingdom_Tyrannosaurus_V3_by_Sonichedgehog2-DCB00CN.webp";
+        } else if (dinosaur === "Spinosaurus") {
+            dinoImage.src = "/spino/spinosaur.webp";
+        }
+    </script>
+
+    <div class="grass"></div>
+</body>
+</html>
+
+
+

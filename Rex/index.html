@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinosaur Selection</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            padding: 20px;
+            text-align: center;
+            background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="radio"] {
+            margin: 0 10px;
+        }
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        h1 {
+            color: #d81b60;
+        }
+        .dino-images {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .dino-images img {
+            width: 150px;
+            margin: 0 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Your Dinosaur</h1>
+    <form id="dinoForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <p>Select your dinosaur:</p>
+        <div class="dino-images">
+            <div>
+                <input type="radio" id="tyrannosaurus" name="dinosaur" value="Tyrannosaurus Rex" required>
+                <label for="tyrannosaurus">Tyrannosaurus Rex</label><br>
+                <img src="/spino/Jurassic_World_Fallen_Kingdom_Tyrannosaurus_V3_by_Sonichedgehog2-DCB00CN.webp" alt="Tyrannosaurus Rex">
+            </div>
+
+            <div>
+                <input type="radio" id="spinosaurus" name="dinosaur" value="Spinosaurus" required>
+                <label for="spinosaurus">Spinosaurus</label><br>
+                <img src="/spino/spinosaur.webp" alt="Spinosaurus">
+            </div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('dinoForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get values from the form
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const dinosaur = document.querySelector('input[name="dinosaur"]:checked').value;
+
+            // Redirect to the result page with the data
+            window.location.href = `result.html?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&dinosaur=${encodeURIComponent(dinosaur)}`;
+        };
+    </script>
+</body>
+</html>
+
